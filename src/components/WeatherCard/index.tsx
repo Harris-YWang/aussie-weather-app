@@ -13,6 +13,10 @@ const Data = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 	color: #212121;
+	@media (max-width: 667px) {
+		grid-template-columns: 1fr 1fr;
+		margin-left: 0;
+	}
 `;
 
 const DataLabel = styled.div`
