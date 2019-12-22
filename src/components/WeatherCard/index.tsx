@@ -23,7 +23,7 @@ const Temperature = styled(props => <div {...props} />)`
   margin: 8px 0;
   font-size: 16px;
   font-weight: 600;
-  color: ${(props: any) => (props.color ? 'red' : 'blue')};
+  color: ${(props: any) => (props.color > 0 ? 'red' : 'blue')};
 `;
 
 const InlineBlock = styled.div`
@@ -47,7 +47,7 @@ const Min = styled.span`
   color: blue;
 `;
 
-export interface ForecastProps {
+export interface WeatherCardProps {
   city: string;
   weatherState?: string;
   temp: number;
@@ -58,7 +58,7 @@ export interface ForecastProps {
   iconUrl?: string;
 }
 
-export const Forecast: React.StatelessComponent<ForecastProps> = ({
+export const WeatherCard: React.StatelessComponent<WeatherCardProps> = ({
   city,
   weatherState,
   temp,
@@ -77,7 +77,7 @@ export const Forecast: React.StatelessComponent<ForecastProps> = ({
           <Label>{weatherState}</Label>
         </InlineBlock>
         <InlineBlock>
-          <Temperature color={temp > 0}>{temp} °C</Temperature>
+          <Temperature temp={temp}>{temp} °C</Temperature>
         </InlineBlock>
         <Data>
           <DataLabel>Max</DataLabel>
@@ -98,4 +98,4 @@ export const Forecast: React.StatelessComponent<ForecastProps> = ({
   );
 };
 
-export default Forecast;
+export default WeatherCard;

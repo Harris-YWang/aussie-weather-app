@@ -9,18 +9,38 @@ import MainContent from './components/MainContent';
 import GridContainer from './components/GridContainer';
 import WeatherCard from './components/WeatherCard';
 
-import weatherData from './services/data.json';
-
 import { WeatherTypes } from './models/weather';
+import { RootState } from './models/states';
 
-// interface WeatherAppProps extends React.Props<WeatherTypes> {
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
-// }
+import { getWeatherCards } from './actions';
 
-class App extends React.Component {
+interface WeatherAppProps extends React.Props<WeatherTypes> {
+  weatherData: Array<WeatherTypes>;
+  getWeatherCards: (keyword: string) => void;
+}
+
+type State = {
+  keyword: string;
+};
+
+class App extends React.Component<WeatherAppProps, State> {
+  state: State = {
+    keyword: ''
+  };
+
+  onKeywordChange = (value: string) => {
+    this.setState({
+      keyword: value
+    });
+    this.props.getWeatherCards(value);
+  };
+
   round = (x: number) => Number(x.toFixed(1));
 
-  renderWeatherCard = (weatherData: WeatherTypes) => {
+  renderWeatherCards = (weatherData: WeatherTypes) => {
     const { name, weather, wind } = weatherData;
     const conditions = weatherData.main;
     const { icon, main } = weather[0];
@@ -42,18 +62,24 @@ class App extends React.Component {
   };
 
   public render(): React.ReactElement<[]> {
+    const { weatherData } = this.props;
+    const { keyword } = this.state;
     return (
       <Container>
         <NavBar>
           <Heading>Aussie Weather</Heading>
           <SearchArea>
-            <Input />
+            <Input
+              type='text'
+              value={keyword}
+              onChange={e => this.onKeywordChange(e.target.value)}
+            />
           </SearchArea>
         </NavBar>
         <MainContent>
           <GridContainer>
             {weatherData.map(weatherData =>
-              this.renderWeatherCard(weatherData)
+              this.renderWeatherCards(weatherData)
             )}
           </GridContainer>
         </MainContent>
@@ -62,4 +88,18 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps(state: RootState) {
+  return {
+    weatherData: state.weather.weatherData
+  };
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    getWeatherCards: (keyword: string) => {
+      dispatch(getWeatherCards(keyword));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
