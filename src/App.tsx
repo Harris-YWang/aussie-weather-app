@@ -1,4 +1,6 @@
 import React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
 import Heading from './components/Heading';
 import NavBar from './components/NavBar';
@@ -8,13 +10,10 @@ import Input from './components/Input';
 import MainContent from './components/MainContent';
 import GridContainer from './components/GridContainer';
 import WeatherCard from './components/WeatherCard';
+import ErrorMessage from './components/ErrorMessage';
 
 import { WeatherTypes } from './models/weather';
 import { RootState } from './models/states';
-
-import { Dispatch } from 'redux';
-import { connect } from 'react-redux';
-
 import { getWeatherCards } from './actions';
 
 interface WeatherAppProps extends React.Props<WeatherTypes> {
@@ -78,8 +77,12 @@ class App extends React.Component<WeatherAppProps, State> {
         </NavBar>
         <MainContent>
           <GridContainer>
-            {weatherData.map(weatherData =>
-              this.renderWeatherCards(weatherData)
+            {weatherData[0] ? (
+              weatherData.map(weatherData =>
+                this.renderWeatherCards(weatherData)
+              )
+            ) : (
+              <ErrorMessage keyword={keyword} />
             )}
           </GridContainer>
         </MainContent>
