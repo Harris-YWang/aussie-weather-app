@@ -1,44 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Aussie Weather App
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Service Victoria Coding Exercise
 
-### `yarn start`
+### Github Repository
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://github.com/Harris-YWang/aussie-weather-app
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Technique Slack
+Create-React-App, React, Redux, TypeScript, Styled-components, Jest and Enzyme Unit Test
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `yarn build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Git
+- Node(& npm): any 10.x version starting with 10.13.0 or greater
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. `npm i` to install the website's npm dependencies
 
-### `yarn eject`
+### Running locally
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. `npm run start` to start the hot-reloading development server
+2. open http://localhost:3000 to open the site in your favorite browser
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Running the tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. `npm i` to install the website's npm dependencies
+2. `npm run test` to run test cases.
 
-## Learn More
+### Unit Test
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm run test` to run unit tests including files like `*.spec.tsx` & `./src/App.test.tsx`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Scope: React Components, Redux Reducers, helper functions, and App Container
+- Tool: Jest, Enzyme
+
+
+## Lint
+
+TSLint, check syntax, find problems, and enforce code style.
+
+- Tool: TSLint, prettier
+
+
+## Deploy
+
+### Build
+
+`npm run build` to build website artifacts
+- Artifacts: `./build`
+
+### Demo
+
+[Heroku Page](https://aussie-weather-app.herokuapp.com/)
+
+## Authors
+
+- Yonghui Wang (Harris), harris.ywang@outlook.com
