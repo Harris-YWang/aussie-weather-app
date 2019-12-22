@@ -1,4 +1,4 @@
-export interface WeatherAction {
-  type: string;
-  payload?: any;
+export interface IWeatherAction {
+	type: string;
+	payload?: any;
 }

@@ -17,8 +17,7 @@
     "react-redux": "^7.1.3",
     "react-scripts": "3.3.0",
     "redux": "^4.0.4",
-    "styled-components": "^4.4.1",
-    "typescript": "~3.7.2"
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.1",
@@ -27,13 +26,18 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
-    "redux-mock-store": "^1.5.3"
+    "prettier": "^1.18.2",
+    "redux-mock-store": "^1.5.3",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tslint": "tslint --fix -t codeFrame --project tsconfig.json ./src/**/*.ts ./src/**/*.tsx",
+    "lint": "prettier --write \"{*,src/**/*}.+(ts|js|scss|css|json|md)\""
   },
   "eslintConfig": {
     "extends": "react-app"

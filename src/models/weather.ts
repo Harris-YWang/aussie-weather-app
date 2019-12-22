@@ -1,55 +1,55 @@
-interface Coordinates {
-  lon: number;
-  lat: number;
+interface ICoordinates {
+	lon: number;
+	lat: number;
 }
 
-interface Wind {
-  speed: number;
-  deg: number;
+interface IWind {
+	speed: number;
+	deg: number;
 }
 
-interface Weather {
-  [index: number]: {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  };
+interface IWeather {
+	[index: number]: {
+		id: number;
+		main: string;
+		description: string;
+		icon: string;
+	};
 }
 
-interface Main {
-  temp: number;
-  feels_like: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
-  humidity: number;
+interface IMain {
+	temp: number;
+	feels_like: number;
+	temp_min: number;
+	temp_max: number;
+	pressure: number;
+	humidity: number;
 }
 
-interface Clouds {
-  all: number;
+interface IClouds {
+	all: number;
 }
 
-interface Sys {
-  type: number;
-  id: number;
-  country: string;
-  sunrise: number;
-  sunset: number;
+interface ISys {
+	type: number;
+	id: number;
+	country: string;
+	sunrise: number;
+	sunset: number;
 }
 
-export interface WeatherTypes {
-  coord: Coordinates;
-  weather: Weather;
-  base: string;
-  main: Main;
-  visibility: number;
-  wind: Wind;
-  clouds: Clouds;
-  dt: number;
-  sys: Sys;
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
+export interface IWeatherTypes {
+	coord: ICoordinates;
+	weather: IWeather;
+	base: string;
+	main: IMain;
+	visibility: number;
+	wind: IWind;
+	clouds: IClouds;
+	dt: number;
+	sys: ISys;
+	timezone: number;
+	id: number;
+	name: string;
+	cod: number;
 }

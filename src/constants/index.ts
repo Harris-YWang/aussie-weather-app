@@ -1,4 +1,4 @@
 export const actionTypes = {
-  KEYWORD_CHANGE: 'KEYWORD_CHANGE',
-  INIT: '@@INIT'
+	KEYWORD_CHANGE: 'KEYWORD_CHANGE',
+	INIT: '@@INIT'
 };

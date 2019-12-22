@@ -1,9 +1,9 @@
-import { WeatherTypes } from '../models/weather';
+import { IWeatherTypes } from '../models/weather';
 
-export interface WeatherState {
-  weatherData: Array<WeatherTypes>;
+export interface IWeatherState {
+	weatherData: Array<IWeatherTypes>;
 }
 
-export interface RootState {
-  weather: WeatherState;
+export interface IRootState {
+	weather: IWeatherState;
 }
