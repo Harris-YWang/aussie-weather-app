@@ -16,6 +16,8 @@ import { WeatherTypes } from './models/weather';
 import { RootState } from './models/states';
 import { getWeatherCards } from './actions';
 
+import round from './helpers/round';
+
 interface WeatherAppProps extends React.Props<WeatherTypes> {
   weatherData: Array<WeatherTypes>;
   getWeatherCards: (keyword: string) => void;
@@ -25,7 +27,7 @@ type State = {
   keyword: string;
 };
 
-class App extends React.Component<WeatherAppProps, State> {
+export class App extends React.Component<WeatherAppProps, State> {
   state: State = {
     keyword: ''
   };
@@ -37,8 +39,6 @@ class App extends React.Component<WeatherAppProps, State> {
     this.props.getWeatherCards(value);
   };
 
-  round = (x: number) => Number(x.toFixed(1));
-
   renderWeatherCards = (weatherData: WeatherTypes) => {
     const { name, weather, wind } = weatherData;
     const conditions = weatherData.main;
@@ -49,15 +49,15 @@ class App extends React.Component<WeatherAppProps, State> {
     const weatherCardProps = {
       city: name,
       weatherState: main,
-      temp: this.round(temp),
-      minTemp: this.round(temp_min),
-      maxTemp: this.round(temp_max),
-      windSpeed: this.round(speed),
-      humidity: this.round(humidity),
+      temp: round(temp),
+      minTemp: round(temp_min),
+      maxTemp: round(temp_max),
+      windSpeed: round(speed),
+      humidity: round(humidity),
       iconUrl: icon
     };
 
-    return <WeatherCard {...weatherCardProps} />;
+    return <WeatherCard key={name} {...weatherCardProps} />;
   };
 
   public render(): React.ReactElement<[]> {
