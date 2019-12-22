@@ -19,11 +19,11 @@ const DataLabel = styled.div`
 	margin: 8px 0;
 `;
 
-const Temperature = styled((props) => <div {...props} />)`
+const Temperature = styled(props => <div {...props} />)`
 	margin: 8px 0;
 	font-size: 16px;
 	font-weight: 600;
-	color: ${(props: any) => (props.color > 0 ? 'red' : 'blue')};
+	color: ${(props: any) => (props.temp > 0 ? 'red' : 'blue')};
 `;
 
 const InlineBlock = styled.div`
